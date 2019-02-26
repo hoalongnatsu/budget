@@ -1,0 +1,8 @@
+.heading-1 {
+  font-size: 3rem;
+  font-weight: normal;
+
+  &--primary {
+    color: var(--color-primary);
+  }
+}

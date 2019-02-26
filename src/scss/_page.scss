@@ -1,0 +1,45 @@
+.header {
+  padding: 1rem;
+}
+
+.create-year {
+
+  .form {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: all .1s;
+
+    button {
+      margin-left: 10px;
+    }
+  }
+}
+
+.group-year {
+  display: flex;
+
+  button:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+.container-month {
+
+  & > svg {
+    cursor: pointer;
+    fill: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+}
+
+.group-month {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
+  
+  .btn {
+    justify-content: center;
+  }
+}

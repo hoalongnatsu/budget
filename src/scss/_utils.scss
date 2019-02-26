@@ -1,0 +1,71 @@
+.mt-tn { margin-top: 1rem !important }
+.mt-sm { margin-top: 2rem !important }
+.mt-md { margin-top: 4rem !important }
+.mt-lg { margin-top: 8rem !important }
+.ml-sm { margin-left: 2rem !important }
+.ml-md { margin-left: 4rem !important }
+.ml-lg { margin-left: 8rem !important }
+.mr-sm { margin-right: 2rem !important }
+.mr-md { margin-right: 4rem !important }
+.mr-lg { margin-right: 8rem !important }
+.mb-tn { margin-bottom: 1rem !important }
+.mb-sm { margin-bottom: 2rem !important }
+.mb-md { margin-bottom: 4rem !important }
+.mb-lg { margin-bottom: 8rem !important }
+.mx-tn {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important
+}
+.my-tn {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important
+}
+.mx-sm {
+  margin-left: 2rem !important;
+  margin-right: 2rem !important
+}
+.my-sm {
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important
+}
+
+.pt-sm { padding-top: 2rem !important }
+.pt-md { padding-top: 4rem !important }
+.pt-lg { padding-top: 8rem !important }
+.pl-sm { padding-left: 2rem !important }
+.pl-md { padding-left: 4rem !important }
+.pl-lg { padding-left: 8rem !important}
+.pr-sm { padding-right: 2rem !important }
+.pr-md { padding-right: 4rem !important }
+.pr-lg { padding-right: 8rem !important }
+.pb-sm { padding-bottom: 2rem !important }
+.pb-md { padding-bottom: 4rem !important }
+.pb-lg { padding-bottom: 8rem !important }
+
+.w-25 { width: 25% !important }
+.w-50 { width: 50% !important }
+.w-75 { width: 75% !important }
+.w-100 { width: 100% !important }
+
+.text-center { text-align: center !important }
+.text-right { text-align: right !important }
+
+.text-white { color: white !important }
+.text-primary { color: var(--color-primary) !important }
+.text-primary-dark { color: var(--color-primary-dark) !important }
+
+.bg-white { background-color: white !important }
+.bg-primary { background-color: var(--color-primary) !important }
+.bg-primary-dark { background-color: var(--color-primary-dark) !important }
+.bg-primary-light { background-color: var(--color-primary-light) !important }
+.bg-success { background-color: var(--color-success) !important }
+.bg-success-dark { background-color: var(--color-success-dark) !important }
+.bg-warning { background-color: var(--color-warning) !important }
+.bg-warning-dark { background-color: var(--color-warning-dark) !important }
+.bg-danger { background-color: var(--color-danger) !important }
+.bg-danger-dark { background-color: var(--color-danger-dark) !important }
+.bg-secondary { background-color: var(--color-secondary) !important }
+.bg-secondary-dark { background-color: var(--color-secondary-dark) !important }
+
+.border-primary { border: 1px solid var(--color-primary) !important }
+.border-primary-dark { border: 1px solid var(--color-primary-dark) !important }
