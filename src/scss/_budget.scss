@@ -111,21 +111,16 @@
       padding: .5rem 1rem;
     }
 
+    div:nth-of-type(2) {
+      min-width: 75px;
+      text-align: center;
+    }
+
     div:last-child {
-      width: 80px;
+      min-width: 80px;
       text-align: right;
       background-color: #b7dbef;
       color: var(--color-primary-dark);
-    }
-  }
-
-  &__statistic-chart {
-
-    .chart {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: var(--color-primary);
     }
   }
 
@@ -138,22 +133,10 @@
       border-collapse: collapse;
     }
 
-    thead {
-
-    }
-
     th {
       padding: .5rem 1rem;
       font-weight: normal;
       color: var(--color-primary-dark);
-    }
-
-    tbody {
-
-    }
-
-    tr {
-
     }
 
     td {
@@ -162,9 +145,15 @@
       border: 1px dashed var(--color-primary);
       border-top: none;
       border-left: none;
+      text-transform: capitalize;
 
       &:last-child {
         border-right: none;
+      }
+
+      &.no-value {
+        border-bottom: none;
+        padding: 1rem 1rem calc(1rem - 5px) 1rem;
       }
     }
   }

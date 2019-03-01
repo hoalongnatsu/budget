@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addEarnings } from '../../actions/budget';
+import { addExpense } from '../../actions/budget';
 
-export class CreateEarnings extends Component {
+export class CreateExpense extends Component {
+
+  types = ['food', 'entertainment', 'other'];
 
   state = {
     description: '',
+    type: this.types[0],
     value: ''
   }
 
-  addEarningsByMonthYear = () => {
+  addExpenseByMonthYear = () => {
     let { month, year, hidden } = this.props;
-    let { description, value } = this.state;
+    let { description, type, value } = this.state;
 
-    this.props.addEarnings({month, year, description, value});
+    this.props.addExpense({month, year, description, type, value});
     this.clearForm();
     hidden();
   }
@@ -22,12 +25,14 @@ export class CreateEarnings extends Component {
   clearForm = () => {
     this.setState({
       description: '',
+      type: this.types[0],
       value: ''
     })
   }
 
   render() {
-    let { description, value } = this.state;
+    let { description, type, value } = this.state;
+    let { hidden } = this.props;
 
     return (
       <section>
@@ -50,14 +55,20 @@ export class CreateEarnings extends Component {
               onChange={(e) => this.setState({value: e.target.value})}
             />
           </div>
+          <div className="input-group">
+            <label className="input-label">Type</label>
+            <select className="input-control" value={type} onChange={(e) => this.setState({type: e.target.value})}>
+              {
+                this.types.map(type => <option key={type} value={type}>{type}</option>)
+              }
+            </select>
+          </div>
+
         </div>
-        <button
-          className="btn btn--primary"
-          onClick={this.addEarningsByMonthYear}
-        >ADD</button>
+        <button onClick={this.addExpenseByMonthYear} className="btn btn--primary">ADD</button>
       </section>
     )
   }
 }
 
-export default connect(null, { addEarnings })(CreateEarnings);
+export default connect(null, { addExpense })(CreateExpense);

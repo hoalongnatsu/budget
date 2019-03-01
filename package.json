@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bson-objectid": "^1.2.4",
+    "chart.js": "^2.7.3",
     "node-sass": "^4.11.0",
     "pouchdb-adapter-idb": "^7.0.0",
     "react": "^16.8.2",
@@ -20,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "compile:scss": "node-sass src/scss/main.scss public/css/style.css"
+
   },
   "eslintConfig": {
     "extends": "react-app"

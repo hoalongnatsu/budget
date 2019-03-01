@@ -12,6 +12,10 @@
 
       &:not(:last-child) {
         margin-right: 1rem;
+
+        @include respond-max(500px) {
+          margin-right: 0;
+        }
       }
     }
   }
@@ -26,8 +30,10 @@
   &-form-inline &-group {
     margin-bottom: 0;
 
-    @include respond-max(500px) {
-      margin-bottom: 1rem;
+    &:not(:last-of-type) {
+      @include respond-max(500px) {
+        margin-bottom: 1rem;
+      }
     }
   }
 

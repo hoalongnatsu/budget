@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import TableHeader from './TableHeader';
 import CreateEarnings from './CreateEarnings';
 
+import { NumberFormat } from '../NumberFormat';
+
 export class EarningsTable extends Component {
   render() {
     let { month, year, earnings, total } = this.props;
@@ -10,9 +12,7 @@ export class EarningsTable extends Component {
     return (
       <div className="budget__table">
         <div className="budget__table-header">
-          <TableHeader title="Earnings">
-            <CreateEarnings month={month} year={year} />
-          </TableHeader>
+          <TableHeader title="Earnings" render={(hidden) => <CreateEarnings hidden={hidden} month={month} year={year} />} />
         </div>
 
         <table>
@@ -24,18 +24,21 @@ export class EarningsTable extends Component {
           </thead>
           <tbody>
             {
-              earnings.map(e => (
-                <tr key={e.name}>
-                  <td>{e.description}</td>
-                  <td>{e.value}</td>
-                </tr>
-              ))
+              total ?
+                earnings.map(e => (
+                  <tr key={e.name}>
+                    <td>{e.description}</td>
+                    <td><NumberFormat value={e.value} local="en-US" currency="USD" /></td>
+                  </tr>
+                ))
+              :
+                <tr><td className="no-value" colSpan="3">You not yet add earnings</td></tr>
             }
           </tbody>
         </table>
 
         <div className="budget__table-footer">
-          Total Earning: ${total}.00
+          Total Earning: <NumberFormat value={total} type="currency" local="en-US" currency="USD" />
         </div>
       </div>
     )

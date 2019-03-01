@@ -31,15 +31,15 @@ class index extends Component {
         <div className="budget">
           <div className="budget__header">
             <Total earnings={totalEarnings} expense={totalExpenses} />
-            <Statistic />
+            <Statistic expense={budget.expense} total={totalExpenses} />
           </div>
           
           <div className="earnings mt-md">
             <EarningsTable earnings={budget.earnings} total={totalEarnings} month={month} year={year} />
           </div>
 
-          <div className="expenses mt-md">
-            <ExpensesTable />
+          <div className="expenses mt-md mb-tn">
+            <ExpensesTable expense={budget.expense} total={totalExpenses} month={month} year={year} />
           </div>
         </div>
       </div>

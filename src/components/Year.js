@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Month from './Month';
+import Icon from './Icon';
+import { If } from '../directive';
 
 import { getYears } from '../actions/year';
+import { getBudgetByYear } from '../actions/budget';
 
 export class Year extends Component {
   state = {
@@ -33,12 +36,13 @@ export class Year extends Component {
     }
     
     this.changeYear(year);
+    this.props.getBudgetByYear(year);
   }
 
   render() {
-    let { years } = this.props;
+    let { years, ybudget } = this.props;
 
-    if (!years) return <div>Loading...</div>;
+    if (!years.length) return <div>Loading...</div>;
 
     return (
       <div>
@@ -50,9 +54,7 @@ export class Year extends Component {
                 key={year}
                 onClick={() => this.changeYearAndShowGroupMonth(year)}
               >
-                <svg className="btn--svg">
-                  <use xlinkHref="/icon/symbol.svg#icon-folder"></use>
-                </svg>
+                <Icon className="btn--svg" name="folder" />
                 <span className="btn--text">{year}</span>
               </button>
             ))
@@ -61,12 +63,11 @@ export class Year extends Component {
         {
           this.state.showGroupMonth ?
             <div className="container-month">
-              <svg
-                className="btn--svg mt-sm"
-                onClick={this.hiddenGroupMonth}
-              >
-                <use xlinkHref="/icon/symbol.svg#icon-squared-cross"></use>
-              </svg>
+              <div className="group-icon mt-sm">
+                <If cond={ybudget.length} then={<Icon className="btn--svg" name="stats-dots" />} />
+                <Icon className="btn--svg" onClick={this.hiddenGroupMonth} name="squared-cross" />
+              </div>
+
               <Month year={this.state.year} />
             </div>
           :
@@ -79,8 +80,9 @@ export class Year extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    years: state.years
+    years: state.years,
+    ybudget: state.ybudget
   }
 }
 
-export default connect(mapStateToProps, { getYears })(Year);
+export default connect(mapStateToProps, { getYears, getBudgetByYear })(Year);

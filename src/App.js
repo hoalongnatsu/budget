@@ -1,4 +1,3 @@
-import './scss/main.scss';
 import React, { Component } from 'react';
 
 import CreateYear from './components/CreateYear';

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import Icon from './Icon';
+
 import { addYear } from '../actions/year';
 
 export class CreateYear extends Component {
@@ -47,13 +49,11 @@ export class CreateYear extends Component {
           className="btn btn--primary btn--icon"
           onClick={this.toggleForm}
         >
-          <svg className="btn--svg">
-            <use xlinkHref="/icon/symbol.svg#icon-plus"></use>
-          </svg>
+          <Icon className="btn--svg" name="plus"/>
           <span className="btn--text">Year</span>
         </button>
         <div
-          className="form" 
+          className="form"
           style={{
             height,
             marginTop: height ? '1rem' : 0

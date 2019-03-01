@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+import { NumberFormat } from '../NumberFormat';
 
 export class Total extends Component {
   render() {
@@ -12,11 +14,36 @@ export class Total extends Component {
         <div className="budget__total-content bg-primary">
           <div className="budget__total-item">
             <h1>Total Budget</h1>
-            <div className="bg-white text-primary-dark">${earnings}.00</div>
+            <div className="bg-white text-primary-dark">
+              <NumberFormat
+                value={earnings}
+                local="en-US"
+                type="currency"
+                currency="USD"
+              />
+            </div>
           </div>
           <div className="budget__total-item">
             <h1>Total Expenses</h1>
-            <div className="bg-white text-primary-dark">${expense}.00</div>
+            <div className="bg-white text-primary-dark">
+              <NumberFormat
+                value={expense}
+                local="en-US"
+                type="currency"
+                currency="USD"
+              />
+            </div>
+          </div>
+          <div className="budget__total-item">
+            <h1>Save</h1>
+            <div className="bg-white text-primary-dark">
+              <NumberFormat
+                value={earnings - expense}
+                local="en-US"
+                type="currency"
+                currency="USD"
+              />
+            </div>
           </div>
         </div>
       </div>

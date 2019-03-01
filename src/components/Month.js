@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import Icon from './Icon';
+
 export class Month extends Component {
   months = [{
     name: 'January',
@@ -52,9 +54,7 @@ export class Month extends Component {
               to={`budget/${year}/${month.value}`}
               key={month.value}
             >
-              <svg className="btn--svg">
-                <use xlinkHref="/icon/symbol.svg#icon-open-book"></use>
-              </svg>
+              <Icon className="btn--svg" name="open-book" />
               <span className="btn--text">{month.name} - {year}</span>
             </Link>
           ))

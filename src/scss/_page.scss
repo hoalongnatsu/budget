@@ -27,10 +27,14 @@
 
 .container-month {
 
-  & > svg {
-    cursor: pointer;
-    fill: var(--color-primary);
-    margin-bottom: 1rem;
+  .group-icon {
+    text-align: right;
+
+    svg {
+      cursor: pointer;
+      fill: var(--color-primary);
+      margin-bottom: 1rem;
+    }
   }
 }
 

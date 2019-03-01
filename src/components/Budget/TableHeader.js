@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+import Icon from '../Icon'
 
 export class TableHeader extends Component {
 
@@ -7,7 +9,14 @@ export class TableHeader extends Component {
   }
 
   showForm = () => {
-    this.setState({height: 132});
+    if (window.innerWidth > 500) {
+      this.setState({height: 132});
+      return;
+    }
+
+    const length = this.refs.form.querySelectorAll('.input-control').length;
+    const height = (length * 72) - 10 + 70;
+    this.setState({height});
   }
 
   hiddenForm = () => {
@@ -15,7 +24,7 @@ export class TableHeader extends Component {
   }
 
   render() {
-    let { title, children } = this.props;
+    let { title, render } = this.props;
 
     return (
       <div className="budget__table-header">
@@ -24,30 +33,21 @@ export class TableHeader extends Component {
           <span>
             {
               this.state.height ?
-                <svg
-                  className="btn--svg"
-                  onClick={this.hiddenForm}
-                >
-                  <use xlinkHref="/icon/symbol.svg#icon-minus"></use>
-                </svg>
+                <Icon className="btn--svg" onClick={this.hiddenForm} name="minus"/>
               :
-                <svg
-                  className="btn--svg"
-                  onClick={this.showForm}
-                >
-                  <use xlinkHref="/icon/symbol.svg#icon-plus"></use>
-                </svg>
+                <Icon className="btn--svg" onClick={this.showForm} name="plus"/>
             }
           </span>
         </div>
         <div
           className="budget__table-form"
+          ref="form"
           style={{
             height: this.state.height,
             padding: this.state.height ? '1rem' : 0
           }}
         >
-          {children}
+          {render(this.hiddenForm)}
         </div>
       </div>
     )
