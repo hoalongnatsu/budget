@@ -46,7 +46,7 @@ export class Month extends Component {
     let { year } = this.props;
 
     return (
-      <div className="group-month">
+      <div className="group-month mb-sm">
         {
           this.months.map(month => (
             <Link 

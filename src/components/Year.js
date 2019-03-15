@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Month from './Month';
+import StatisticBudgetYear from './StatisticBudgetYear'
 import Icon from './Icon';
 import { If } from '../directive';
 
@@ -11,7 +12,8 @@ import { getBudgetByYear } from '../actions/budget';
 export class Year extends Component {
   state = {
     year: null,
-    showGroupMonth: false
+    showGroupMonth: false,
+    showStatisticBudgetYear: false
   }
 
   componentWillMount() {
@@ -24,6 +26,23 @@ export class Year extends Component {
 
   hiddenGroupMonth = () => {
     this.setState({showGroupMonth: false});
+  }
+
+  showStatisticBudgetYear = () => {
+    this.setState({showStatisticBudgetYear: true});
+  }
+
+  hiddenStatisticBudgetYear = () => {
+    this.setState({showStatisticBudgetYear: false});
+  }
+
+  toggleStatisticBudgetYear = () => {
+    if (this.state.showStatisticBudgetYear) {
+      this.hiddenStatisticBudgetYear();
+      return;
+    }
+
+    this.showStatisticBudgetYear();
   }
 
   changeYear = (year) => {
@@ -41,6 +60,7 @@ export class Year extends Component {
 
   render() {
     let { years, ybudget } = this.props;
+    let { showGroupMonth, showStatisticBudgetYear } = this.state;
 
     if (!years.length) return <div>Loading...</div>;
 
@@ -61,14 +81,18 @@ export class Year extends Component {
           }
         </div>
         {
-          this.state.showGroupMonth ?
+          showGroupMonth ?
             <div className="container-month">
               <div className="group-icon mt-sm">
-                <If cond={ybudget.length} then={<Icon className="btn--svg" name="stats-dots" />} />
+                <If
+                  cond={ybudget.length}
+                  then={<Icon className="btn--svg" name="stats-dots" onClick={this.toggleStatisticBudgetYear} />}
+                />
                 <Icon className="btn--svg" onClick={this.hiddenGroupMonth} name="squared-cross" />
               </div>
 
               <Month year={this.state.year} />
+              <If cond={showStatisticBudgetYear} then={<StatisticBudgetYear ybudget={ybudget} />} />
             </div>
           :
             ''

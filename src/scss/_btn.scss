@@ -46,124 +46,30 @@
       }
     }
   }
+
+  @each $type in  primary, success, danger, warning, secondary {
+    &--#{$type} {
+      border: 1.5px solid var(--color-#{$type});
+      background: var(--color-#{$type});
+      
+      &:hover {
+        border: 1.5px solid var(--color-#{$type}-dark);
+        background: var(--color-#{$type}-dark);
+      }
+    }
   
-  &--primary {
-    border: 1.5px solid var(--color-primary);
-    background: var(--color-primary);
-    
-    &:hover {
-      border: 1.5px solid var(--color-primary-dark);
-      background: var(--color-primary-dark);
-    }
-  }
-
-  &--outline-primary {
-    border: 1.5px solid var(--color-primary);
-    color: var(--color-primary);
-
-    .btn--svg {
-      fill: var(--color-primary);
-    }
-
-    &:hover {
-      border: 1.5px solid var(--color-primary);
-      background: var(--color-primary);
-    }
-  }
-
-  &--success {
-    border: 1.5px solid var(--color-success);
-    background: var(--color-success);
-    
-    &:hover {
-      border: 1.5px solid var(--color-success-dark);
-      background: var(--color-success-dark);
-    }
-  }
-
-  &--outline-success {
-    border: 1.5px solid var(--color-success);
-    color: var(--color-success);
-
-    .btn--svg {
-      fill: var(--color-success);
-    }
-
-    &:hover {
-      border: 1.5px solid var(--color-success);
-      background: var(--color-success);
-    }
-  }
-
-  &--danger {
-    border: 1.5px solid var(--color-danger);
-    background: var(--color-danger);
-    
-    &:hover {
-      border: 1.5px solid var(--color-danger-dark);
-      background: var(--color-danger-dark);
-    }
-  }
-
-  &--outline-danger {
-    border: 1.5px solid var(--color-danger);
-    color: var(--color-danger);
-
-    .btn--svg {
-      fill: var(--color-danger);
-    }
-
-    &:hover {
-      border: 1.5px solid var(--color-danger);
-      background: var(--color-danger);
-    }
-  }
-
-  &--warning {
-    border: 1.5px solid var(--color-warning);
-    background: var(--color-warning);
-    
-    &:hover {
-      border: 1.5px solid var(--color-warning-dark);
-      background: var(--color-warning-dark);
-    }
-  }
-
-  &--outline-warning {
-    border: 1.5px solid var(--color-warning);
-    color: var(--color-warning);
-
-    .btn--svg {
-      fill: var(--color-warning);
-    }
-
-    &:hover {
-      border: 1.5px solid var(--color-warning);
-      background: var(--color-warning);
-    }
-  }
-
-  &--secondary {
-    border: 1.5px solid var(--color-secondary);
-    background: var(--color-secondary);
-    
-    &:hover {
-      border: 1.5px solid var(--color-secondary-dark);
-      background: var(--color-secondary-dark);
-    }
-  }
-
-  &--outline-secondary {
-    border: 1.5px solid var(--color-secondary);
-    color: var(--color-secondary);
-
-    .btn--svg {
-      fill: var(--color-secondary);
-    }
-
-    &:hover {
-      border: 1.5px solid var(--color-secondary);
-      background: var(--color-secondary);
+    &--outline-#{$type} {
+      border: 1.5px solid var(--color-#{$type});
+      color: var(--color-#{$type});
+  
+      .btn--svg {
+        fill: var(--color-#{$type});
+      }
+  
+      &:hover {
+        border: 1.5px solid var(--color-#{$type});
+        background: var(--color-#{$type});
+      }
     }
   }
 }

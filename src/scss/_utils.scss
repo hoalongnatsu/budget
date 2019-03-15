@@ -12,13 +12,10 @@
 .mb-sm { margin-bottom: 2rem !important }
 .mb-md { margin-bottom: 4rem !important }
 .mb-lg { margin-bottom: 8rem !important }
+.mx-auto { margin: 0 auto !important; }
 .mx-tn {
   margin-left: 1rem !important;
   margin-right: 1rem !important
-}
-.my-tn {
-  margin-top: 1rem !important;
-  margin-bottom: 1rem !important
 }
 .mx-sm {
   margin-left: 2rem !important;
@@ -27,6 +24,10 @@
 .my-sm {
   margin-top: 2rem !important;
   margin-bottom: 2rem !important
+}
+.my-tn {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important
 }
 
 .pt-sm { padding-top: 2rem !important }

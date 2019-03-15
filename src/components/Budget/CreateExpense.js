@@ -32,7 +32,6 @@ export class CreateExpense extends Component {
 
   render() {
     let { description, type, value } = this.state;
-    let { hidden } = this.props;
 
     return (
       <section>
